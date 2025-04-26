@@ -1,0 +1,114 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container geral */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Logo */
+.logo h1 {
+    font-size: 28px;
+    color: #2c3e50;
+}
+
+/* Estilos para menus */
+nav {
+    margin-top: 15px;
+}
+
+/* Menus principais */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Links principais */
+nav ul li a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Hover nos links */
+nav ul li a:hover {
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Submenus ocultos por padrão */
+.menu-disciplinas ul ul {
+    display: none;
+    position: absolute;
+    background-color: #ecf0f1;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Itens do submenu */
+.menu-disciplinas ul ul li {
+    display: block;
+    margin: 5px 0;
+}
+
+/* Mostrar submenu ao passar o mouse */
+.menu-disciplinas ul li:hover > ul {
+    display: block;
+}
+
+/* Posicionamento correto do submenu */
+.menu-disciplinas ul li {
+    position: relative;
+}
+
+/* Estilo para o segundo menu (menu rápido) */
+.menu-rapido {
+    margin-top: 10px;
+}
+
+.menu-rapido ul {
+    gap: 15px;
+}
+
+/* Estilo das seções */
+main {
+    margin-top: 40px;
+}
+
+section {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Títulos das seções */
+section h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* Parágrafos das seções */
+section p {
+    font-size: 16px;
+    line-height: 1.6;
+}
