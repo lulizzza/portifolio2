@@ -1,86 +1,231 @@
-<<!DOCTYPE html>
-<html lang="pt">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de Disciplinas</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio de Disciplinas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+    }
+
+    header {
+      background: linear-gradient(90deg, #002f6c, #4da6ff);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+
+    .logo h1 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
+    .menu-disciplinas ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-disciplinas li {
+      position: relative;
+      margin-right: 20px;
+    }
+
+    .menu-disciplinas > ul > li > a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      transition: background 0.3s;
+      border-radius: 5px;
+    }
+
+    .menu-disciplinas > ul > li > a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: #004080;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      border-radius: 0 0 6px 6px;
+      min-width: 180px;
+    }
+
+    .submenu li {
+      width: 100%;
+    }
+
+    .submenu a {
+      padding: 10px 15px;
+      display: block;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .submenu a:hover {
+      background-color: #4da6ff;
+    }
+
+    .menu-disciplinas li:hover .submenu {
+      display: block;
+    }
+
+    main {
+      padding: 30px 20px;
+    }
+
+    h2 {
+      color: #002f6c;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: 2px solid #4da6ff;
+      background-color: white;
+      border-radius: 10px;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
+  <header>
     <div class="container">
-        <div class="logo">
-            <h1>PORTFÓLIO DE DISCIPLINAS</h1>
-        </div>
-        <nav class="menu-disciplinas">
-            <ul>
-                <li><a href="#" onclick="loadContent('matematica')">Matemática</a></li>
-                <li><a href="#" onclick="loadContent('fisica')">Física</a></li>
-                <li><a href="#" onclick="loadContent('quimica')">Química</a></li>
+      <div class="logo">
+        <h1>PORTFÓLIO DE DISCIPLINAS</h1>
+      </div>
+      <nav class="menu-disciplinas">
+        <ul>
+          <li>
+            <a href="#">Matemática</a>
+            <ul class="submenu">
+              <li><a href="#" onclick="loadContent('matematica', 'conteudo')">Conteúdos</a></li>
+              <li><a href="#" onclick="loadContent('matematica', 'exercicios')">Exercícios</a></li>
+              <li><a href="#" onclick="loadContent('matematica', 'avaliacoes')">Avaliações</a></li>
             </ul>
-        </nav>
+          </li>
+          <li>
+            <a href="#">Física</a>
+            <ul class="submenu">
+              <li><a href="#" onclick="loadContent('fisica', 'conteudo')">Conteúdos</a></li>
+              <li><a href="#" onclick="loadContent('fisica', 'exercicios')">Exercícios</a></li>
+              <li><a href="#" onclick="loadContent('fisica', 'avaliacoes')">Avaliações</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Química</a>
+            <ul class="submenu">
+              <li><a href="#" onclick="loadContent('quimica', 'conteudo')">Conteúdos</a></li>
+              <li><a href="#" onclick="loadContent('quimica', 'exercicios')">Exercícios</a></li>
+              <li><a href="#" onclick="loadContent('quimica', 'avaliacoes')">Avaliações</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
 
-<main>
-    <section id="secao2">
-        <h2>Conteúdo das Disciplinas</h2>
-        <p>Selecione uma disciplina no menu acima para visualizar o conteúdo correspondente do 3º ano.</p>
-        <iframe id="contentFrame"></iframe>
-    </section>
-</main>
+  <main>
+    <h2>Conteúdo das Disciplinas</h2>
+    <p>Selecione uma disciplina e uma seção (conteúdo, exercícios ou avaliações) para visualizar abaixo:</p>
+    <iframe id="contentFrame"></iframe>
+  </main>
 
-<script>
-    function loadContent(subject) {
-        const contents = {
-            matematica: `
-                <h3>Matemática - 3º Ano</h3>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Exponential.svg/512px-Exponential.svg.png" alt="Função Exponencial" width="300"/>
-                <ul>
-                    <li><strong>Tema:</strong> Funções Exponenciais e Logarítmicas</li>
-                    <li><strong>Exercício:</strong> Resolva: \(2^x = 16\). Resposta: x = 4</li>
-                    <li><strong>Geometria Espacial:</strong> Volume de prismas e esferas</li>
-                    <li><strong>Exercício:</strong> Qual o volume de uma esfera de raio 3cm? Use \( V = \\frac{4}{3}πr^3 \)</li>
-                </ul>
-            `,
-            fisica: `
-                <h3>Física - 3º Ano</h3>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Lens3.svg/512px-Lens3.svg.png" alt="Óptica Geométrica" width="300"/>
-                <ul>
-                    <li><strong>Óptica:</strong> Reflexão e refração</li>
-                    <li><strong>Exercício:</strong> Um raio de luz passa do ar para a água. Calcule o ângulo de refração dado o ângulo de incidência de 30°.</li>
-                    <li><strong>Eletromagnetismo:</strong> Força magnética</li>
-                    <li><strong>Exercício:</strong> Um fio conduz 5A em um campo de 0,2T. Qual a força sobre 2m de fio perpendicular ao campo?</li>
-                </ul>
-            `,
-            quimica: `
-                <h3>Química - 3º Ano</h3>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Galvanic_Cell.svg/512px-Galvanic_Cell.svg.png" alt="Pilhas" width="300"/>
-                <ul>
-                    <li><strong>Química Orgânica:</strong> Álcoois, ácidos, ésteres</li>
-                    <li><strong>Exercício:</strong> Dê a fórmula estrutural do etanol (C₂H₅OH)</li>
-                    <li><strong>Eletroquímica:</strong> Pilhas e eletrólise</li>
-                    <li><strong>Exercício:</strong> Identifique o ânodo e o cátodo de uma pilha de Daniell</li>
-                </ul>
-            `
-        };
+  <script>
+    function loadContent(subject, section) {
+      const data = {
+        matematica: {
+          conteudo: `
+            <h3>Conteúdo de Matemática</h3>
+            <p>Funções exponenciais, logaritmos, matrizes e geometria espacial.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Exponential.svg/512px-Exponential.svg.png" width="300"/>
+          `,
+          exercicios: `
+            <h3>Exercícios de Matemática</h3>
+            <ul>
+              <li>Resolva: \(2^x = 32\)</li>
+              <li>Calcule o determinante da matriz 2x2 [[1, 2], [3, 4]]</li>
+            </ul>
+          `,
+          avaliacoes: `
+            <h3>Avaliações de Matemática</h3>
+            <p>Prova sobre funções e logaritmos marcada para 10/05.</p>
+          `
+        },
+        fisica: {
+          conteudo: `
+            <h3>Conteúdo de Física</h3>
+            <p>Óptica, eletromagnetismo, cinemática e dinâmica.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Lens3.svg/512px-Lens3.svg.png" width="300"/>
+          `,
+          exercicios: `
+            <h3>Exercícios de Física</h3>
+            <ul>
+              <li>Qual a força sobre um corpo de 10kg com aceleração de 2m/s²?</li>
+              <li>Explique o princípio da refração da luz.</li>
+            </ul>
+          `,
+          avaliacoes: `
+            <h3>Avaliações de Física</h3>
+            <p>Simulado de eletromagnetismo em 15/05.</p>
+          `
+        },
+        quimica: {
+          conteudo: `
+            <h3>Conteúdo de Química</h3>
+            <p>Funções orgânicas, ligações químicas e estequiometria.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Galvanic_Cell.svg/512px-Galvanic_Cell.svg.png" width="300"/>
+          `,
+          exercicios: `
+            <h3>Exercícios de Química</h3>
+            <ul>
+              <li>Balanceie: H₂ + O₂ → H₂O</li>
+              <li>Qual a massa de 2 mols de CO₂?</li>
+            </ul>
+          `,
+          avaliacoes: `
+            <h3>Avaliações de Química</h3>
+            <p>Revisão de reações químicas - prova em 20/05.</p>
+          `
+        }
+      };
 
-        const frame = document.getElementById("contentFrame");
-        const doc = frame.contentDocument || frame.contentWindow.document;
-        doc.open();
-        doc.write(`
-            <style>
-                body { font-family: Arial, sans-serif; padding: 20px; color: #222; }
-                h3 { color: #002f6c; }
-                img { margin-bottom: 15px; border-radius: 6px; }
-                ul { line-height: 1.8; }
-            </style>
-            ${contents[subject]}
-        `);
-        doc.close();
+      const content = data[subject]?.[section] || "<p>Conteúdo não encontrado.</p>";
+      const frame = document.getElementById("contentFrame");
+      const doc = frame.contentDocument || frame.contentWindow.document;
+
+      doc.open();
+      doc.write(`
+        <style>
+          body { font-family: Arial, sans-serif; padding: 20px; color: #222; }
+          h3 { color: #002f6c; }
+          img { margin: 15px 0; border-radius: 6px; }
+          ul { line-height: 1.8; }
+        </style>
+        ${content}
+      `);
+      doc.close();
     }
-</script>
+  </script>
 
 </body>
 </html>
