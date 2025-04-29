@@ -7,15 +7,15 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f4f8;
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fb;
     }
 
     header {
       background: linear-gradient(90deg, #002f6c, #4da6ff);
       color: white;
-      padding: 20px 0;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .container {
@@ -23,68 +23,64 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      padding: 0 20px;
     }
 
     .logo h1 {
       margin: 0;
-      font-size: 26px;
-      letter-spacing: 1px;
+      font-size: 24px;
     }
 
-    .menu-disciplinas ul {
+    nav.menu-disciplinas ul {
       list-style: none;
-      display: flex;
       padding: 0;
       margin: 0;
+      display: flex;
     }
 
-    .menu-disciplinas li {
+    nav.menu-disciplinas li {
       position: relative;
       margin-right: 20px;
     }
 
-    .menu-disciplinas > ul > li > a {
+    nav.menu-disciplinas > ul > li > a {
       color: white;
       text-decoration: none;
       padding: 10px 15px;
       display: block;
-      transition: background 0.3s;
       border-radius: 5px;
     }
 
-    .menu-disciplinas > ul > li > a:hover {
+    nav.menu-disciplinas > ul > li > a:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
 
     .submenu {
       display: none;
       position: absolute;
-      background-color: #004080;
       top: 100%;
       left: 0;
+      background-color: #004080;
+      border-radius: 0 0 5px 5px;
       z-index: 1000;
-      border-radius: 0 0 6px 6px;
-      min-width: 180px;
     }
 
     .submenu li {
-      width: 100%;
+      width: 200px;
     }
 
     .submenu a {
-      padding: 10px 15px;
       display: block;
+      padding: 10px 15px;
       color: white;
       text-decoration: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     .submenu a:hover {
       background-color: #4da6ff;
     }
 
-    .menu-disciplinas li:hover .submenu {
+    nav.menu-disciplinas li:hover .submenu {
       display: block;
     }
 
@@ -92,17 +88,16 @@
       padding: 30px 20px;
     }
 
-    h2 {
-      color: #002f6c;
-    }
-
     iframe {
       width: 100%;
       height: 500px;
       border: 2px solid #4da6ff;
-      background-color: white;
       border-radius: 10px;
-      padding: 10px;
+      background-color: white;
+    }
+
+    h2 {
+      color: #002f6c;
     }
   </style>
 </head>
@@ -146,7 +141,7 @@
 
   <main>
     <h2>Conteúdo das Disciplinas</h2>
-    <p>Selecione uma disciplina e uma seção (conteúdo, exercícios ou avaliações) para visualizar abaixo:</p>
+    <p>Escolha uma matéria e acesse conteúdos, exercícios ou avaliações.</p>
     <iframe id="contentFrame"></iframe>
   </main>
 
@@ -156,55 +151,52 @@
         matematica: {
           conteudo: `
             <h3>Conteúdo de Matemática</h3>
-            <p>Funções exponenciais, logaritmos, matrizes e geometria espacial.</p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Exponential.svg/512px-Exponential.svg.png" width="300"/>
+            <p>Funções, logaritmos, matrizes e geometria analítica.</p>
           `,
           exercicios: `
             <h3>Exercícios de Matemática</h3>
             <ul>
-              <li>Resolva: \(2^x = 32\)</li>
-              <li>Calcule o determinante da matriz 2x2 [[1, 2], [3, 4]]</li>
+              <li>Resolva: 2x + 3 = 11</li>
+              <li>Calcule o determinante de [[2,3],[4,5]]</li>
             </ul>
           `,
           avaliacoes: `
             <h3>Avaliações de Matemática</h3>
-            <p>Prova sobre funções e logaritmos marcada para 10/05.</p>
+            <p>Prova bimestral: 15/05</p>
           `
         },
         fisica: {
           conteudo: `
             <h3>Conteúdo de Física</h3>
-            <p>Óptica, eletromagnetismo, cinemática e dinâmica.</p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Lens3.svg/512px-Lens3.svg.png" width="300"/>
+            <p>Cinemática, dinâmica, eletromagnetismo e óptica.</p>
           `,
           exercicios: `
             <h3>Exercícios de Física</h3>
             <ul>
-              <li>Qual a força sobre um corpo de 10kg com aceleração de 2m/s²?</li>
-              <li>Explique o princípio da refração da luz.</li>
+              <li>Calcule a força: F = m.a (m = 10kg, a = 3m/s²)</li>
+              <li>Defina a 2ª Lei de Newton.</li>
             </ul>
           `,
           avaliacoes: `
             <h3>Avaliações de Física</h3>
-            <p>Simulado de eletromagnetismo em 15/05.</p>
+            <p>Simulado de cinemática: 18/05</p>
           `
         },
         quimica: {
           conteudo: `
             <h3>Conteúdo de Química</h3>
-            <p>Funções orgânicas, ligações químicas e estequiometria.</p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Galvanic_Cell.svg/512px-Galvanic_Cell.svg.png" width="300"/>
+            <p>Estequiometria, reações, ácidos e bases, química orgânica.</p>
           `,
           exercicios: `
             <h3>Exercícios de Química</h3>
             <ul>
               <li>Balanceie: H₂ + O₂ → H₂O</li>
-              <li>Qual a massa de 2 mols de CO₂?</li>
+              <li>Qual a massa de 2 mols de H₂O?</li>
             </ul>
           `,
           avaliacoes: `
             <h3>Avaliações de Química</h3>
-            <p>Revisão de reações químicas - prova em 20/05.</p>
+            <p>Prova de reações orgânicas: 22/05</p>
           `
         }
       };
@@ -216,10 +208,9 @@
       doc.open();
       doc.write(`
         <style>
-          body { font-family: Arial, sans-serif; padding: 20px; color: #222; }
+          body { font-family: Arial, sans-serif; padding: 20px; }
           h3 { color: #002f6c; }
-          img { margin: 15px 0; border-radius: 6px; }
-          ul { line-height: 1.8; }
+          ul { line-height: 1.6; }
         </style>
         ${content}
       `);
