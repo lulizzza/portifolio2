@@ -3,61 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifólio de disciplinas</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portfólio de Disciplinas</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(90deg, #0077cc, #00cc88);
+            color: white;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #006699;
+            top: 100%;
+            left: 0;
+        }
+
+        .submenu li {
+            width: 150px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+
+        h2 {
+            color: #0077cc;
+        }
+    </style>
 </head>
 <body>
-    <!-- Cabeçalho -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>PORTIFÓLIO DE DISCIPLINAS</h1>
-            </div>
-            <!-- Primeiro Menu: Disciplinas com Submenus -->
-            <nav class="menu-disciplinas">
-                <ul>
-                    <li>
-                        <a href="#">Matemática</a>
-                        <ul class="submenu">
-                            <li><a href="#">Atividades</a></li>
-                            <li><a href="#">Provas</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Física</a>
-                        <ul class="submenu">
-                            <li><a href="#">Atividades</a></li>
-                            <li><a href="#">Provas</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Química</a>
-                        <ul class="submenu">
-                            <li><a href="#">Atividades</a></li>
-                            <li><a href="#">Provas</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
 
-            <!-- Segundo Menu: Navegação rápida (poderia ser outra função) -->
-            <nav class="menu-rapido">
-                <ul>
-                    <li><a href="#secao1">Trabalhos</a></li>
-                    <li><a href="#secao2">Conteúdo</a></li>
-                    <li><a href="#secao3">Provas</a></li>
-                </ul>
-            </nav>
+<header>
+    <div class="container">
+        <div class="logo">
+            <h1>PORTFÓLIO DE DISCIPLINAS</h1>
         </div>
-    </header>
+        <nav class="menu-disciplinas">
+            <ul>
+                <li>
+                    <a href="#" onclick="loadContent('matematica')">Matemática</a>
+                </li>
+                <li>
+                    <a href="#" onclick="loadContent('fisica')">Física</a>
+                </li>
+                <li>
+                    <a href="#" onclick="loadContent('quimica')">Química</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-    <!-- Corpo do site com 3 seções -->
-    <main>l
+<main>
+    <section id="secao2">
+        <h2>Conteúdo das Disciplinas</h2>
+        <p>Selecione uma disciplina no menu acima para visualizar o conteúdo correspondente do 3º ano.</p>
+        <iframe id="contentFrame"></iframe>
+    </section>
+</main>
 
-        <section id="secao2">
-            <h2>Conteúdo das Disciplinas</h2>
-            <p>Explore as atividades e provas separadas por disciplina no menu acima.</p>
-        </section>
-    </main>
+<script>
+    function loadContent(subject) {
+        const contents = {
+            matematica: `
+                <h3>Matemática - 3º Ano</h3>
+                <ul>
+                    <li>Funções Exponenciais e Logarítmicas</li>
+                    <li>Progressões Aritméticas e Geométricas</li>
+                    <li>Geometria Espacial: prismas, cilindros, pirâmides, cones e esferas</li>
+                    <li>Estatística e Probabilidade</li>
+                </ul>
+            `,
+            fisica: `
+                <h3>Física - 3º Ano</h3>
+                <ul>
+                    <li>Ondulatória: som e luz</li>
+                    <li>Óptica geométrica: espelhos e lentes</li>
+                    <li>Física Moderna: teoria da relatividade e quântica básica</li>
+                    <li>Eletricidade e Eletromagnetismo</li>
+                </ul>
+            `,
+            quimica: `
+                <h3>Química - 3º Ano</h3>
+                <ul>
+                    <li>Química Orgânica: funções orgânicas, reações e polímeros</li>
+                    <li>Estequiometria</li>
+                    <li>Termoquímica</li>
+                    <li>Eletroquímica: pilhas, eletrólise</li>
+                </ul>
+            `
+        };
+
+        const frame = document.getElementById("contentFrame");
+        const doc = frame.contentDocument || frame.contentWindow.document;
+        doc.open();
+        doc.write(contents[subject]);
+        doc.close();
+    }
+</script>
+
 </body>
 </html>
