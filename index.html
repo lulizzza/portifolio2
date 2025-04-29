@@ -1,85 +1,10 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio de Disciplinas</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background: linear-gradient(90deg, #0077cc, #00cc88);
-            color: white;
-            padding: 20px 0;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 0 20px;
-        }
-
-        .logo h1 {
-            margin: 0;
-            font-size: 26px;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            position: relative;
-            margin-right: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            display: block;
-        }
-
-        nav ul li:hover > ul {
-            display: block;
-        }
-
-        .submenu {
-            display: none;
-            position: absolute;
-            background-color: #006699;
-            top: 100%;
-            left: 0;
-        }
-
-        .submenu li {
-            width: 150px;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        iframe {
-            width: 100%;
-            height: 400px;
-            border: 1px solid #ccc;
-            background-color: white;
-        }
-
-        h2 {
-            color: #0077cc;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -90,15 +15,9 @@
         </div>
         <nav class="menu-disciplinas">
             <ul>
-                <li>
-                    <a href="#" onclick="loadContent('matematica')">Matemática</a>
-                </li>
-                <li>
-                    <a href="#" onclick="loadContent('fisica')">Física</a>
-                </li>
-                <li>
-                    <a href="#" onclick="loadContent('quimica')">Química</a>
-                </li>
+                <li><a href="#" onclick="loadContent('matematica')">Matemática</a></li>
+                <li><a href="#" onclick="loadContent('fisica')">Física</a></li>
+                <li><a href="#" onclick="loadContent('quimica')">Química</a></li>
             </ul>
         </nav>
     </div>
@@ -117,29 +36,32 @@
         const contents = {
             matematica: `
                 <h3>Matemática - 3º Ano</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Exponential.svg/512px-Exponential.svg.png" alt="Função Exponencial" width="300"/>
                 <ul>
-                    <li>Funções Exponenciais e Logarítmicas</li>
-                    <li>Progressões Aritméticas e Geométricas</li>
-                    <li>Geometria Espacial: prismas, cilindros, pirâmides, cones e esferas</li>
-                    <li>Estatística e Probabilidade</li>
+                    <li><strong>Tema:</strong> Funções Exponenciais e Logarítmicas</li>
+                    <li><strong>Exercício:</strong> Resolva: \(2^x = 16\). Resposta: x = 4</li>
+                    <li><strong>Geometria Espacial:</strong> Volume de prismas e esferas</li>
+                    <li><strong>Exercício:</strong> Qual o volume de uma esfera de raio 3cm? Use \( V = \\frac{4}{3}πr^3 \)</li>
                 </ul>
             `,
             fisica: `
                 <h3>Física - 3º Ano</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Lens3.svg/512px-Lens3.svg.png" alt="Óptica Geométrica" width="300"/>
                 <ul>
-                    <li>Ondulatória: som e luz</li>
-                    <li>Óptica geométrica: espelhos e lentes</li>
-                    <li>Física Moderna: teoria da relatividade e quântica básica</li>
-                    <li>Eletricidade e Eletromagnetismo</li>
+                    <li><strong>Óptica:</strong> Reflexão e refração</li>
+                    <li><strong>Exercício:</strong> Um raio de luz passa do ar para a água. Calcule o ângulo de refração dado o ângulo de incidência de 30°.</li>
+                    <li><strong>Eletromagnetismo:</strong> Força magnética</li>
+                    <li><strong>Exercício:</strong> Um fio conduz 5A em um campo de 0,2T. Qual a força sobre 2m de fio perpendicular ao campo?</li>
                 </ul>
             `,
             quimica: `
                 <h3>Química - 3º Ano</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Galvanic_Cell.svg/512px-Galvanic_Cell.svg.png" alt="Pilhas" width="300"/>
                 <ul>
-                    <li>Química Orgânica: funções orgânicas, reações e polímeros</li>
-                    <li>Estequiometria</li>
-                    <li>Termoquímica</li>
-                    <li>Eletroquímica: pilhas, eletrólise</li>
+                    <li><strong>Química Orgânica:</strong> Álcoois, ácidos, ésteres</li>
+                    <li><strong>Exercício:</strong> Dê a fórmula estrutural do etanol (C₂H₅OH)</li>
+                    <li><strong>Eletroquímica:</strong> Pilhas e eletrólise</li>
+                    <li><strong>Exercício:</strong> Identifique o ânodo e o cátodo de uma pilha de Daniell</li>
                 </ul>
             `
         };
@@ -147,7 +69,15 @@
         const frame = document.getElementById("contentFrame");
         const doc = frame.contentDocument || frame.contentWindow.document;
         doc.open();
-        doc.write(contents[subject]);
+        doc.write(`
+            <style>
+                body { font-family: Arial, sans-serif; padding: 20px; color: #222; }
+                h3 { color: #002f6c; }
+                img { margin-bottom: 15px; border-radius: 6px; }
+                ul { line-height: 1.8; }
+            </style>
+            ${contents[subject]}
+        `);
         doc.close();
     }
 </script>
