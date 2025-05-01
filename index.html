@@ -1,143 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio de Disciplinas</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f2f6fc;
-    }
-
-    header {
-      background: linear-gradient(to right, #0d47a1, #42a5f5);
-      padding: 10px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-    }
-
-    .menu {
-      list-style: none;
-      display: flex;
-      padding: 0;
-      margin: 0;
-    }
-
-    .menu > li {
-      position: relative;
-    }
-
-    .menu > li > a {
-      display: block;
-      padding: 15px 25px;
-      color: white;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .menu > li:hover {
-      background-color: #1565c0;
-    }
-
-    .submenu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      background-color: #003366;
-      min-width: 180px;
-      z-index: 1000;
-    }
-
-    .submenu a {
-      display: block;
-      padding: 10px 15px;
-      color: white;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .submenu a:hover {
-      background-color: #004080;
-    }
-
-    .menu li:hover .submenu {
-      display: block;
-    }
-
-    main {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-      min-height: 400px;
-    }
-
-    .content-section {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-left: 5px solid #1976d2;
-      border-radius: 5px;
-      display: none;
-    }
-
-    .content-section.active {
-      display: block;
-    }
-
-    h2 {
-      color: #0d47a1;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #0d47a1;
-      color: white;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <nav>
-    <ul class="menu">
-      <li>
-        <a>Matemática</a>
-        <ul class="submenu">
-          <li><a onclick="showContent('mat-conteudos')">Conteúdos</a></li>
-          <li><a onclick="showContent('mat-exercicios')">Exercícios</a></li>
-          <li><a onclick="showContent('mat-avaliacoes')">Avaliações</a></li>
-        </ul>
-      </li>
-      <li>
-        <a>Física</a>
-        <ul class="submenu">
-          <li><a onclick="showContent('fis-conteudos')">Conteúdos</a></li>
-          <li><a onclick="showContent('fis-exercicios')">Exercícios</a></li>
-          <li><a onclick="showContent('fis-avaliacoes')">Avaliações</a></li>
-        </ul>
-      </li>
-      <li>
-        <a>Química</a>
-        <ul class="submenu">
-          <li><a onclick="showContent('qui-conteudos')">Conteúdos</a></li>
-          <li><a onclick="showContent('qui-exercicios')">Exercícios</a></li>
-          <li><a onclick="showContent('qui-avaliacoes')">Avaliações</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-</header>
-
 <main>
-  <!-- Conteúdo dinâmico -->
-  <div id="mat-conteudos" class="content-section active">
+  <!-- Mensagem inicial -->
+  <div id="bem-vindo" class="content-section active">
+    <h2>Bem-vindo!</h2>
+    <p>Selecione uma disciplina no menu acima para começar.</p>
+  </div>
+
+  <div id="mat-conteudos" class="content-section">
     <h2>Conteúdo de Matemática</h2>
     <p>Funções, análise combinatória, estatística e geometria analítica.</p>
   </div>
@@ -177,10 +45,6 @@
   </div>
 </main>
 
-<footer>
-  &copy; 2025 Portfólio de Disciplinas | Desenvolvido pelo Grupo 7
-</footer>
-
 <script>
   function showContent(id) {
     const sections = document.querySelectorAll('.content-section');
@@ -191,6 +55,3 @@
     if (selected) selected.classList.add('active');
   }
 </script>
-
-</body>
-</html>
