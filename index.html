@@ -1,57 +1,66 @@
-<main>
-  <!-- Mensagem inicial -->
-  <div id="bem-vindo" class="content-section active">
-    <h2>Bem-vindo!</h2>
-    <p>Selecione uma disciplina no menu acima para começar.</p>
-  </div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio de Disciplinas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f6fc;
+    }
 
-  <div id="mat-conteudos" class="content-section">
-    <h2>Conteúdo de Matemática</h2>
-    <p>Funções, análise combinatória, estatística e geometria analítica.</p>
-  </div>
-  <div id="mat-exercicios" class="content-section">
-    <h2>Exercícios de Matemática</h2>
-    <p>Listas semanais de prática com gabarito.</p>
-  </div>
-  <div id="mat-avaliacoes" class="content-section">
-    <h2>Avaliações de Matemática</h2>
-    <p>Simulados do ENEM e vestibulares anteriores.</p>
-  </div>
+    header {
+      background: linear-gradient(to right, #0d47a1, #42a5f5);
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-  <div id="fis-conteudos" class="content-section">
-    <h2>Conteúdo de Física</h2>
-    <p>Cinemática, dinâmica, eletromagnetismo e óptica.</p>
-  </div>
-  <div id="fis-exercicios" class="content-section">
-    <h2>Exercícios de Física</h2>
-    <p>Exercícios por tema com resolução em vídeo.</p>
-  </div>
-  <div id="fis-avaliacoes" class="content-section">
-    <h2>Avaliações de Física</h2>
-    <p>Provas antigas de universidades renomadas.</p>
-  </div>
+    nav {
+      display: flex;
+      justify-content: center;
+    }
 
-  <div id="qui-conteudos" class="content-section">
-    <h2>Conteúdo de Química</h2>
-    <p>Química orgânica, inorgânica, físico-química e ambiental.</p>
-  </div>
-  <div id="qui-exercicios" class="content-section">
-    <h2>Exercícios de Química</h2>
-    <p>Exercícios com foco no ENEM e vestibulares.</p>
-  </div>
-  <div id="qui-avaliacoes" class="content-section">
-    <h2>Avaliações de Química</h2>
-    <p>Provas simuladas e anteriores com correção comentada.</p>
-  </div>
-</main>
+    .menu {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
 
-<script>
-  function showContent(id) {
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-      section.classList.remove('active');
-    });
-    const selected = document.getElementById(id);
-    if (selected) selected.classList.add('active');
-  }
-</script>
+    .menu > li {
+      position: relative;
+    }
+
+    .menu > li > a {
+      display: block;
+      padding: 15px 25px;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .menu > li:hover {
+      background-color: #1565c0;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      background-color: #003366;
+      min-width: 180px;
+      z-index: 1000;
+    }
+
+    .submenu a {
+      display: block;
+      padding: 10px 15px;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .submenu a:hover {
+      background-co
