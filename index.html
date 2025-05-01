@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfólio de Disciplinas</title>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: Arial, sans-serif;
       background-color: #f0f4f8;
     }
@@ -14,104 +19,30 @@
     header {
       background: linear-gradient(90deg, #003366, #3399ff);
       color: white;
-      padding: 20px;
+      padding: 20px 40px;
     }
 
-    .container {
+    .menu-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     .logo h1 {
-      margin: 0;
       font-size: 24px;
     }
 
     nav.menu-disciplinas ul {
       list-style: none;
-      margin: 0;
-      padding: 0;
       display: flex;
+      gap: 30px;
     }
 
-    nav.menu-disciplinas > ul > li {
+    nav.menu-disciplinas li {
       position: relative;
-      margin-right: 20px;
     }
 
-    nav.menu-disciplinas a {
+    nav.menu-disciplinas > ul > li > a {
       color: white;
       text-decoration: none;
-      padding: 10px 15px;
-      display: block;
-    }
-
-    nav.menu-disciplinas > ul > li:hover > a {
-      background-color: rgba(255, 255, 255, 0.2);
-      border-radius: 5px;
-    }
-
-    .submenu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #003366;
-      display: none;
-      min-width: 180px;
-      border-radius: 0 0 5px 5px;
-    }
-
-    .submenu li {
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .submenu li:last-child {
-      border-bottom: none;
-    }
-
-    .submenu a {
-      color: white;
-      padding: 10px 15px;
-    }
-
-    .submenu a:hover {
-      background-color: #0055aa;
-    }
-
-    nav.menu-disciplinas li:hover > .submenu {
-      display: block;
-    }
-
-    main {
-      padding: 30px 20px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: 2px solid #3399ff;
-      border-radius: 10px;
-      background-color: white;
-    }
-
-    h2 {
-      color: #003366;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="container">
-      <div class="logo">
-        <h1>PORTFÓLIO DE DISCIPLINAS</h1>
-      </div>
-      <nav class="menu-disciplinas">
-        <ul>
-          <li>
-            <a href="#">Matemática</a>
-            <ul class="submenu">
-              <li><a href="#" onclick="loadContent('matematica', 'conteudo')">Conteúdos</a></li>
-              <li><a href="#" onclick="loadContent('matematica', 'exercicios')">Ex
+      padding: 10px
