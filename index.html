@@ -7,15 +7,15 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #91a8c6;
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fb;
     }
 
     header {
-      background: linear-gradient(90deg, #0a3d62, #3c6382);
+      background: linear-gradient(90deg, #002f6c, #4da6ff);
       color: white;
-      padding: 25px 40px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .container {
@@ -27,8 +27,7 @@
 
     .logo h1 {
       margin: 0;
-      font-size: 28px;
-      letter-spacing: 1px;
+      font-size: 24px;
     }
 
     nav.menu-disciplinas ul {
@@ -46,11 +45,9 @@
     nav.menu-disciplinas > ul > li > a {
       color: white;
       text-decoration: none;
-      padding: 12px 18px;
+      padding: 10px 15px;
       display: block;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background-color 0.3s;
+      border-radius: 5px;
     }
 
     nav.menu-disciplinas > ul > li > a:hover {
@@ -62,9 +59,8 @@
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: #1e3799;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      background-color: #004080;
+      border-radius: 0 0 5px 5px;
       z-index: 1000;
     }
 
@@ -74,11 +70,10 @@
 
     .submenu a {
       display: block;
-      padding: 10px 16px;
+      padding: 10px 15px;
       color: white;
       text-decoration: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: background-color 0.2s;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     .submenu a:hover {
@@ -90,23 +85,19 @@
     }
 
     main {
-      padding: 40px 30px;
+      padding: 30px 20px;
     }
 
     iframe {
       width: 100%;
       height: 500px;
       border: 2px solid #4da6ff;
-      border-radius: 12px;
+      border-radius: 10px;
       background-color: white;
     }
 
     h2 {
-      color: #0a3d62;
-    }
-
-    p {
-      color: #333;
+      color: #002f6c;
     }
   </style>
 </head>
@@ -115,7 +106,7 @@
   <header>
     <div class="container">
       <div class="logo">
-        <h1>📚 Portfólio de Disciplinas</h1>
+        <h1>PORTFÓLIO DE DISCIPLINAS</h1>
       </div>
       <nav class="menu-disciplinas">
         <ul>
@@ -158,19 +149,55 @@
     function loadContent(subject, section) {
       const data = {
         matematica: {
-          conteudo: `<h3>Conteúdo de Matemática</h3><p>Exemplo: Potências e Equações Exponenciais...</p>`,
-          exercicios: `<h3>Exercícios de Matemática</h3><ul><li>1. Calcule 2³</li></ul>`,
-          avaliacoes: `<h3>Avaliações de Matemática</h3><p>Prova: 02/04 - Valor: 30</p>`
+          conteudo: `
+            <h3>Conteúdo de Matemática</h3>
+            <p>Funções, logaritmos, matrizes e geometria analítica.</p>
+          `,
+          exercicios: `
+            <h3>Exercícios de Matemática</h3>
+            <ul>
+              <li>Resolva: 2x + 3 = 11</li>
+              <li>Calcule o determinante de [[2,3],[4,5]]</li>
+            </ul>
+          `,
+          avaliacoes: `
+            <h3>Avaliações de Matemática</h3>
+            <p>Prova bimestral: 15/05</p>
+          `
         },
         fisica: {
-          conteudo: `<h3>Conteúdo de Física</h3><p>Cinemática, dinâmica, etc.</p>`,
-          exercicios: `<h3>Exercícios de Física</h3><ul><li>1. Calcule a força...</li></ul>`,
-          avaliacoes: `<h3>Avaliações de Física</h3><p>Prova: 06/02 - Valor: 40</p>`
+          conteudo: `
+            <h3>Conteúdo de Física</h3>
+            <p>Cinemática, dinâmica, eletromagnetismo e óptica.</p>
+          `,
+          exercicios: `
+            <h3>Exercícios de Física</h3>
+            <ul>
+              <li>Calcule a força: F = m.a (m = 10kg, a = 3m/s²)</li>
+              <li>Defina a 2ª Lei de Newton.</li>
+            </ul>
+          `,
+          avaliacoes: `
+            <h3>Avaliações de Física</h3>
+            <p>Simulado de cinemática: 18/05</p>
+          `
         },
         quimica: {
-          conteudo: `<h3>Conteúdo de Química</h3><p>Reações, estequiometria...</p>`,
-          exercicios: `<h3>Exercícios de Química</h3><ul><li>1. Balanceie: H₂ + O₂ → H₂O</li></ul>`,
-          avaliacoes: `<h3>Avaliações de Química</h3><p>Prova: 13/02 - Valor: 20</p>`
+          conteudo: `
+            <h3>Conteúdo de Química</h3>
+            <p>Estequiometria, reações, ácidos e bases, química orgânica.</p>
+          `,
+          exercicios: `
+            <h3>Exercícios de Química</h3>
+            <ul>
+              <li>Balanceie: H₂ + O₂ → H₂O</li>
+              <li>Qual a massa de 2 mols de H₂O?</li>
+            </ul>
+          `,
+          avaliacoes: `
+            <h3>Avaliações de Química</h3>
+            <p>Prova de reações orgânicas: 22/05</p>
+          `
         }
       };
 
@@ -181,8 +208,8 @@
       doc.open();
       doc.write(`
         <style>
-          body { font-family: Arial, sans-serif; padding: 20px; color: #333; }
-          h3 { color: #0a3d62; }
+          body { font-family: Arial, sans-serif; padding: 20px; }
+          h3 { color: #002f6c; }
           ul { line-height: 1.6; }
         </style>
         ${content}
@@ -190,9 +217,6 @@
       doc.close();
     }
   </script>
- <footer>
-   <P>criado por Diego, Luiza e Sofia</P>
-   align-items: center;
- </footer>
+
 </body>
 </html>
