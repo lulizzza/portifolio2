@@ -7,14 +7,14 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", sans-serif;
       background-color: #f2f6fc;
     }
 
     header {
       background: linear-gradient(to right, #0d47a1, #42a5f5);
       padding: 10px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     nav {
@@ -38,7 +38,6 @@
       padding: 15px 25px;
       color: white;
       text-decoration: none;
-      cursor: pointer;
     }
 
     .menu > li:hover {
@@ -59,7 +58,6 @@
       padding: 10px 15px;
       color: white;
       text-decoration: none;
-      cursor: pointer;
     }
 
     .submenu a:hover {
@@ -74,19 +72,23 @@
       padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
-      min-height: 400px;
     }
 
     .content-section {
+      display: none;
       background: white;
       padding: 20px;
       margin-bottom: 20px;
       border-left: 5px solid #1976d2;
       border-radius: 5px;
-      display: none;
     }
 
-    .content-section.active {
+    .content-section:target {
+      display: block;
+    }
+
+    #inicio:target ~ #inicio,
+    body:not(:has(:target)) #inicio {
       display: block;
     }
 
@@ -108,27 +110,27 @@
   <nav>
     <ul class="menu">
       <li>
-        <a>Matemática</a>
+        <a href="#">Matemática</a>
         <ul class="submenu">
-          <li><a onclick="showContent('mat-conteudos')">Conteúdos</a></li>
-          <li><a onclick="showContent('mat-exercicios')">Exercícios</a></li>
-          <li><a onclick="showContent('mat-avaliacoes')">Avaliações</a></li>
+          <li><a href="#mat-conteudos">Conteúdos</a></li>
+          <li><a href="#mat-exercicios">Exercícios</a></li>
+          <li><a href="#mat-avaliacoes">Avaliações</a></li>
         </ul>
       </li>
       <li>
-        <a>Física</a>
+        <a href="#">Física</a>
         <ul class="submenu">
-          <li><a onclick="showContent('fis-conteudos')">Conteúdos</a></li>
-          <li><a onclick="showContent('fis-exercicios')">Exercícios</a></li>
-          <li><a onclick="showContent('fis-avaliacoes')">Avaliações</a></li>
+          <li><a href="#fis-conteudos">Conteúdos</a></li>
+          <li><a href="#fis-exercicios">Exercícios</a></li>
+          <li><a href="#fis-avaliacoes">Avaliações</a></li>
         </ul>
       </li>
       <li>
-        <a>Química</a>
+        <a href="#">Química</a>
         <ul class="submenu">
-          <li><a onclick="showContent('qui-conteudos')">Conteúdos</a></li>
-          <li><a onclick="showContent('qui-exercicios')">Exercícios</a></li>
-          <li><a onclick="showContent('qui-avaliacoes')">Avaliações</a></li>
+          <li><a href="#qui-conteudos">Conteúdos</a></li>
+          <li><a href="#qui-exercicios">Exercícios</a></li>
+          <li><a href="#qui-avaliacoes">Avaliações</a></li>
         </ul>
       </li>
     </ul>
@@ -136,20 +138,21 @@
 </header>
 
 <main>
-  <!-- Mensagem inicial -->
-  <div id="bem-vindo" class="content-section active">
-    <h2>Bem-vindo!</h2>
-    <p>Selecione uma disciplina no menu acima para começar.</p>
+  <div id="inicio" class="content-section">
+    <h2>Bem-vindo ao Portfólio de Disciplinas</h2>
+    <p>Selecione uma disciplina no menu acima para visualizar os conteúdos.</p>
   </div>
 
   <div id="mat-conteudos" class="content-section">
     <h2>Conteúdo de Matemática</h2>
     <p>Funções, análise combinatória, estatística e geometria analítica.</p>
   </div>
+
   <div id="mat-exercicios" class="content-section">
     <h2>Exercícios de Matemática</h2>
     <p>Listas semanais de prática com gabarito.</p>
   </div>
+
   <div id="mat-avaliacoes" class="content-section">
     <h2>Avaliações de Matemática</h2>
     <p>Simulados do ENEM e vestibulares anteriores.</p>
@@ -159,10 +162,12 @@
     <h2>Conteúdo de Física</h2>
     <p>Cinemática, dinâmica, eletromagnetismo e óptica.</p>
   </div>
+
   <div id="fis-exercicios" class="content-section">
     <h2>Exercícios de Física</h2>
     <p>Exercícios por tema com resolução em vídeo.</p>
   </div>
+
   <div id="fis-avaliacoes" class="content-section">
     <h2>Avaliações de Física</h2>
     <p>Provas antigas de universidades renomadas.</p>
@@ -172,10 +177,12 @@
     <h2>Conteúdo de Química</h2>
     <p>Química orgânica, inorgânica, físico-química e ambiental.</p>
   </div>
+
   <div id="qui-exercicios" class="content-section">
     <h2>Exercícios de Química</h2>
     <p>Exercícios com foco no ENEM e vestibulares.</p>
   </div>
+
   <div id="qui-avaliacoes" class="content-section">
     <h2>Avaliações de Química</h2>
     <p>Provas simuladas e anteriores com correção comentada.</p>
@@ -183,19 +190,8 @@
 </main>
 
 <footer>
-  &copy; 2025 Portfólio de Disciplinas | Desenvolvido pelo Grupo 7
+  &copy; 2025 Portfólio Acadêmico | Grupo 7
 </footer>
-
-<script>
-  function showContent(id) {
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-      section.classList.remove('active');
-    });
-    const selected = document.getElementById(id);
-    if (selected) selected.classList.add('active');
-  }
-</script>
 
 </body>
 </html>
