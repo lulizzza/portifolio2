@@ -5,10 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfólio de Disciplinas</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: "Segoe UI", sans-serif;
       background-color: #f2f6fc;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Cabeçalho institucional */
+    .institucional {
+      background-color: #e3f2fd;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #0d47a1;
+      border-bottom: 1px solid #90caf9;
     }
 
     header {
@@ -69,6 +87,7 @@
     }
 
     main {
+      flex: 1;
       padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
@@ -98,13 +117,18 @@
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 15px;
       background-color: #0d47a1;
       color: white;
+      margin-top: auto;
     }
   </style>
 </head>
 <body>
+
+<div class="institucional">
+  Instituto de Ensino Acadêmico – Portfólio de Disciplinas
+</div>
 
 <header>
   <nav>
@@ -139,8 +163,8 @@
 
 <main>
   <div id="inicio" class="content-section">
-    <h2>Bem-vindo ao Portfólio de Disciplinas</h2>
-    <p>Selecione uma disciplina no menu acima para visualizar os conteúdos.</p>
+    <h2>Bem-vindo ao Portfólio Acadêmico</h2>
+    <p>Utilize o menu acima para acessar os conteúdos das disciplinas.</p>
   </div>
 
   <div id="mat-conteudos" class="content-section">
@@ -190,8 +214,9 @@
 </main>
 
 <footer>
-  &copy; 2025 Portfólio Acadêmico | Grupo 7
+  &copy; 2025 Instituto Acadêmico | Desenvolvido pelo Grupo 7
 </footer>
 
 </body>
 </html>
+
