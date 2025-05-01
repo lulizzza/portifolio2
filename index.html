@@ -8,14 +8,13 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f4f7fb;
+      background-color: #f0f4f8;
     }
 
     header {
-      background: linear-gradient(90deg, #002f6c, #4da6ff);
+      background: linear-gradient(90deg, #003366, #3399ff);
       color: white;
       padding: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .container {
@@ -32,55 +31,56 @@
 
     nav.menu-disciplinas ul {
       list-style: none;
-      padding: 0;
       margin: 0;
+      padding: 0;
       display: flex;
     }
 
-    nav.menu-disciplinas li {
+    nav.menu-disciplinas > ul > li {
       position: relative;
       margin-right: 20px;
     }
 
-    nav.menu-disciplinas > ul > li > a {
+    nav.menu-disciplinas a {
       color: white;
       text-decoration: none;
       padding: 10px 15px;
       display: block;
+    }
+
+    nav.menu-disciplinas > ul > li:hover > a {
+      background-color: rgba(255, 255, 255, 0.2);
       border-radius: 5px;
     }
 
-    nav.menu-disciplinas > ul > li > a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
     .submenu {
-      display: none;
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: #004080;
+      background-color: #003366;
+      display: none;
+      min-width: 180px;
       border-radius: 0 0 5px 5px;
-      z-index: 1000;
     }
 
     .submenu li {
-      width: 200px;
-    }
-
-    .submenu a {
-      display: block;
-      padding: 10px 15px;
-      color: white;
-      text-decoration: none;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .submenu a:hover {
-      background-color: #4da6ff;
+    .submenu li:last-child {
+      border-bottom: none;
     }
 
-    nav.menu-disciplinas li:hover .submenu {
+    .submenu a {
+      color: white;
+      padding: 10px 15px;
+    }
+
+    .submenu a:hover {
+      background-color: #0055aa;
+    }
+
+    nav.menu-disciplinas li:hover > .submenu {
       display: block;
     }
 
@@ -91,13 +91,13 @@
     iframe {
       width: 100%;
       height: 500px;
-      border: 2px solid #4da6ff;
+      border: 2px solid #3399ff;
       border-radius: 10px;
       background-color: white;
     }
 
     h2 {
-      color: #002f6c;
+      color: #003366;
     }
   </style>
 </head>
@@ -114,109 +114,4 @@
             <a href="#">Matemática</a>
             <ul class="submenu">
               <li><a href="#" onclick="loadContent('matematica', 'conteudo')">Conteúdos</a></li>
-              <li><a href="#" onclick="loadContent('matematica', 'exercicios')">Exercícios</a></li>
-              <li><a href="#" onclick="loadContent('matematica', 'avaliacoes')">Avaliações</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Física</a>
-            <ul class="submenu">
-              <li><a href="#" onclick="loadContent('fisica', 'conteudo')">Conteúdos</a></li>
-              <li><a href="#" onclick="loadContent('fisica', 'exercicios')">Exercícios</a></li>
-              <li><a href="#" onclick="loadContent('fisica', 'avaliacoes')">Avaliações</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Química</a>
-            <ul class="submenu">
-              <li><a href="#" onclick="loadContent('quimica', 'conteudo')">Conteúdos</a></li>
-              <li><a href="#" onclick="loadContent('quimica', 'exercicios')">Exercícios</a></li>
-              <li><a href="#" onclick="loadContent('quimica', 'avaliacoes')">Avaliações</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <h2>Conteúdo das Disciplinas</h2>
-    <p>Escolha uma matéria e acesse conteúdos, exercícios ou avaliações.</p>
-    <iframe id="contentFrame"></iframe>
-  </main>
-
-  <script>
-    function loadContent(subject, section) {
-      const data = {
-        matematica: {
-          conteudo: `
-            <h3>Conteúdo de Matemática</h3>
-            <p>Funções, logaritmos, matrizes e geometria analítica.</p>
-          `,
-          exercicios: `
-            <h3>Exercícios de Matemática</h3>
-            <ul>
-              <li>Resolva: 2x + 3 = 11</li>
-              <li>Calcule o determinante de [[2,3],[4,5]]</li>
-            </ul>
-          `,
-          avaliacoes: `
-            <h3>Avaliações de Matemática</h3>
-            <p>Prova bimestral: 15/05</p>
-          `
-        },
-        fisica: {
-          conteudo: `
-            <h3>Conteúdo de Física</h3>
-            <p>Cinemática, dinâmica, eletromagnetismo e óptica.</p>
-          `,
-          exercicios: `
-            <h3>Exercícios de Física</h3>
-            <ul>
-              <li>Calcule a força: F = m.a (m = 10kg, a = 3m/s²)</li>
-              <li>Defina a 2ª Lei de Newton.</li>
-            </ul>
-          `,
-          avaliacoes: `
-            <h3>Avaliações de Física</h3>
-            <p>Simulado de cinemática: 18/05</p>
-          `
-        },
-        quimica: {
-          conteudo: `
-            <h3>Conteúdo de Química</h3>
-            <p>Estequiometria, reações, ácidos e bases, química orgânica.</p>
-          `,
-          exercicios: `
-            <h3>Exercícios de Química</h3>
-            <ul>
-              <li>Balanceie: H₂ + O₂ → H₂O</li>
-              <li>Qual a massa de 2 mols de H₂O?</li>
-            </ul>
-          `,
-          avaliacoes: `
-            <h3>Avaliações de Química</h3>
-            <p>Prova de reações orgânicas: 22/05</p>
-          `
-        }
-      };
-
-      const content = data[subject]?.[section] || "<p>Conteúdo não encontrado.</p>";
-      const frame = document.getElementById("contentFrame");
-      const doc = frame.contentDocument || frame.contentWindow.document;
-
-      doc.open();
-      doc.write(`
-        <style>
-          body { font-family: Arial, sans-serif; padding: 20px; }
-          h3 { color: #002f6c; }
-          ul { line-height: 1.6; }
-        </style>
-        ${content}
-      `);
-      doc.close();
-    }
-  </script>
-
-</body>
-</html>
+              <li><a href="#" onclick="loadContent('matematica', 'exercicios')">Ex
