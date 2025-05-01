@@ -1,87 +1,179 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfólio de Disciplinas</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f6fc;
+    }
+
+    header {
+      background: linear-gradient(to right, #0d47a1, #42a5f5);
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu > li {
+      position: relative;
+    }
+
+    .menu > li > a {
+      display: block;
+      padding: 15px 25px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .menu > li:hover {
+      background-color: #1565c0;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      background-color: #003366;
+      min-width: 180px;
+      z-index: 1000;
+    }
+
+    .submenu a {
+      display: block;
+      padding: 10px 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .submenu a:hover {
+      background-color: #004080;
+    }
+
+    .menu li:hover .submenu {
+      display: block;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 5px solid #1976d2;
+      border-radius: 5px;
+    }
+
+    h2 {
+      color: #0d47a1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0d47a1;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="menu-container">
-      <ul class="menu-principal">
-        <li>
-          <a href="#">Matemática</a>
-          <ul class="submenu">
-            <li><a href="#mat-conteudos">Conteúdos</a></li>
-            <li><a href="#mat-exercicios">Exercícios</a></li>
-            <li><a href="#mat-avaliacoes">Avaliações</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">Física</a>
-          <ul class="submenu">
-            <li><a href="#fis-conteudos">Conteúdos</a></li>
-            <li><a href="#fis-exercicios">Exercícios</a></li>
-            <li><a href="#fis-avaliacoes">Avaliações</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">Química</a>
-          <ul class="submenu">
-            <li><a href="#qui-conteudos">Conteúdos</a></li>
-            <li><a href="#qui-exercicios">Exercícios</a></li>
-            <li><a href="#qui-avaliacoes">Avaliações</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </header>
 
-  <main>
-    <!-- Seções exemplo para cada matéria -->
-    <section id="mat-conteudos">
-      <h2>Conteúdo de Matemática</h2>
-      <p>Funções, análise combinatória, estatística e geometria analítica.</p>
-    </section>
-    <section id="mat-exercicios">
-      <h2>Exercícios de Matemática</h2>
-      <p>Listas semanais de prática com gabarito.</p>
-    </section>
-    <section id="mat-avaliacoes">
-      <h2>Avaliações de Matemática</h2>
-      <p>Simulados do ENEM e vestibulares anteriores.</p>
-    </section>
+<header>
+  <nav>
+    <ul class="menu">
+      <li>
+        <a href="#">Matemática</a>
+        <ul class="submenu">
+          <li><a href="#mat-conteudos">Conteúdos</a></li>
+          <li><a href="#mat-exercicios">Exercícios</a></li>
+          <li><a href="#mat-avaliacoes">Avaliações</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Física</a>
+        <ul class="submenu">
+          <li><a href="#fis-conteudos">Conteúdos</a></li>
+          <li><a href="#fis-exercicios">Exercícios</a></li>
+          <li><a href="#fis-avaliacoes">Avaliações</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Química</a>
+        <ul class="submenu">
+          <li><a href="#qui-conteudos">Conteúdos</a></li>
+          <li><a href="#qui-exercicios">Exercícios</a></li>
+          <li><a href="#qui-avaliacoes">Avaliações</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
 
-    <section id="fis-conteudos">
-      <h2>Conteúdo de Física</h2>
-      <p>Cinemática, dinâmica, eletromagnetismo e óptica.</p>
-    </section>
-    <section id="fis-exercicios">
-      <h2>Exercícios de Física</h2>
-      <p>Problemas resolvidos e listas de revisão.</p>
-    </section>
-    <section id="fis-avaliacoes">
-      <h2>Avaliações de Física</h2>
-      <p>Provas aplicadas e correções comentadas.</p>
-    </section>
+<main>
+  <!-- Matemática -->
+  <section id="mat-conteudos">
+    <h2>Conteúdo de Matemática</h2>
+    <p>Funções, análise combinatória, estatística e geometria analítica.</p>
+  </section>
+  <section id="mat-exercicios">
+    <h2>Exercícios de Matemática</h2>
+    <p>Listas semanais de prática com gabarito.</p>
+  </section>
+  <section id="mat-avaliacoes">
+    <h2>Avaliações de Matemática</h2>
+    <p>Simulados do ENEM e vestibulares anteriores.</p>
+  </section>
 
-    <section id="qui-conteudos">
-      <h2>Conteúdo de Química</h2>
-      <p>Físico-química, química orgânica e inorgânica.</p>
-    </section>
-    <section id="qui-exercicios">
-      <h2>Exercícios de Química</h2>
-      <p>Listas de ácidos, bases e reações orgânicas.</p>
-    </section>
-    <section id="qui-avaliacoes">
-      <h2>Avaliações de Química</h2>
-      <p>Provas bimestrais e revisões para vestibular.</p>
-    </section>
-  </main>
+  <!-- Física -->
+  <section id="fis-conteudos">
+    <h2>Conteúdo de Física</h2>
+    <p>Cinemática, dinâmica, eletromagnetismo e óptica.</p>
+  </section>
+  <section id="fis-exercicios">
+    <h2>Exercícios de Física</h2>
+    <p>Exercícios por tema com resolução em vídeo.</p>
+  </section>
+  <section id="fis-avaliacoes">
+    <h2>Avaliações de Física</h2>
+    <p>Provas antigas de universidades renomadas.</p>
+  </section>
 
-  <footer>
-    <p>© 2025 Portfólio de Disciplinas – Desenvolvido por [Seu Nome]</p>
-  </footer>
+  <!-- Química -->
+  <section id="qui-conteudos">
+    <h2>Conteúdo de Química</h2>
+    <p>Química orgânica, inorgânica, físico-química e ambiental.</p>
+  </section>
+  <section id="qui-exercicios">
+    <h2>Exercícios de Química</h2>
+    <p>Exercícios com foco no ENEM e vestibulares.</p>
+  </section>
+  <section id="qui-avaliacoes">
+    <h2>Avaliações de Química</h2>
+    <p>Provas simuladas e anteriores com correção comentada.</p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Portfólio de Disciplinas | Desenvolvido pelo Grupo 7
+</footer>
+
 </body>
 </html>
